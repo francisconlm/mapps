@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'bootstrap-sass', '~> 3.3.5.1'
+gem 'sass-rails', '>= 3.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

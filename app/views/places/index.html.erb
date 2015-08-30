@@ -1,8 +1,9 @@
   <p id="notice"><%= notice %></p>
   
   <h1>Listing Places</h1>
+  <h3><%= link_to 'New Place', new_place_path %></h3>
   
-  <table>
+  <table class="table">
     <thead>
       <tr>
         <th>Latitude</th>
@@ -25,8 +26,8 @@
           <td><%= place.title %></td>
           <td>
   
-  <div style='width: 200px;'>
-              <div id="map<%= place.id %>" style='width: 200px; height: 200px;'></div>
+  <div style='width: 200px;' >
+              <div id="map<%= place.id %>" style='width: 100px; height: 100px;'></div>
             </div>
   
   <script type="text/javascript">
@@ -48,11 +49,10 @@
   </table>
   
   <br>
+  <hr>
   
-  <%= link_to 'New Place', new_place_path %>
-  
-  <div style='width: 800px;'>
-              <div id="map" style='width: 800px; height: 400px;'></div>
+  <div style='width: 800px; align="middle"'>
+              <div  id="map" style='width: 800px; height: 400px;'></div>
             </div>
   
   <script type="text/javascript">
@@ -63,4 +63,6 @@
     handler.fitMapToBounds();
     });
   </script>
+  
+
   
