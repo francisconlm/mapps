@@ -73,6 +73,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:latitude, :longitude, :address, :description, :title)
+      params.require(:place).permit(:latitude, :longitude, :address, :description, :title, :category_id)
     end
 end

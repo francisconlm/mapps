@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="row">
+
+  <div class="col-md-4"><p>
   <strong>Latitude:</strong>
   <%= @place.latitude %>
 </p>
@@ -24,13 +26,26 @@
   <strong>Title:</strong>
   <%= @place.title %>
 </p>
+<p>
+  <strong>Category:</strong>
+  <%= @place.category.name %>
+</p>
+
+<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %></div>
+
+  <div class="col-md-7">
+
 
   <div style='width: 800px;'>
     <div id="map" style='width: 800px; height: 400px;'></div>
   </div>
 
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+
+</div>
+<div class="col-md-1"></div>
+</div>
+
 
 <script type="text/javascript">
 if (navigator.geolocation) { //Checks if browser supports geolocation
@@ -39,7 +54,10 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
      var longitude = position.coords.longitude;                 //location
      var coords = new google.maps.LatLng(latitude, longitude); //Creates variable for map coordinates
      var directionsService = new google.maps.DirectionsService();
-     var directionsDisplay = new google.maps.DirectionsRenderer();
+     var rendererOptions = {
+          suppressMarkers : false
+        }
+     var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
      var mapOptions = //Sets map options
      {
        zoom: 15,  //Sets zoom level (0-21)
