@@ -10,6 +10,19 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @category = Category.find(params[:id])
+    @title = @category.name
+    @posts = @category.places
+    
+    @hash = Gmaps4rails.build_markers(@posts) do |place, marker|
+      marker.lat place.latitude
+      marker.lng place.longitude
+      marker.picture({
+       :url => "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=#{place.category.id}|FF0000|000000", # up to you to pass the proper parameters in the url, I guess with a method from device
+       :width   => 32,
+       :height  => 32
+       })
+    end
   end
 
   # GET /categories/new

@@ -8,7 +8,13 @@ class PlacesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@places) do |place, marker|
       marker.lat place.latitude
       marker.lng place.longitude
-end
+      marker.picture({
+       :url => "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=#{place.category.id}|FF0000|000000", # up to you to pass the proper parameters in the url, I guess with a method from device
+       :width   => 32,
+       :height  => 32
+       })
+    end
+
   end
 
   # GET /places/1

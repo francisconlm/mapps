@@ -1,7 +1,7 @@
 I'm trying to do an Rails Map Application.
 
-I want to add different markers for different categorys. Each category will have a different icon.
-I want to list places by category also
+v0.3- added different markers for different categorys. Each category will have a different icon.
+      now is possible to list places by category also
 
 v0.2- Added list with point in maps
       added directions from user browser location
