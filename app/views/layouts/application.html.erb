@@ -9,6 +9,7 @@
   <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
 </head>
 <body>
+      
   <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -23,12 +24,23 @@
       
       <ul class="nav navbar-nav navbar-right">
         <li><a class="page-scroll" href="/#places">Places</a></li>
+        <li><h4>xXx</h4></li>
         <li><%= link_to 'Categories', categories_path %></li>
         <li><%= link_to 'New Place', new_place_path %></li>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 <div style='margin-left: auto; margin-right: auto; padding-left:25px; padding-right:25px; border-style:dashed;'>
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>">
+    <a href="#" data-dismiss="alert" class="close">×</a>
+    <ul>
+      <li>
+        <%= value %>
+      </li>
+    </ul>
+  </div>
+<% end %>
 <%= yield %>
 </div>
 
