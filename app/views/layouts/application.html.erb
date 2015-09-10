@@ -26,21 +26,19 @@
         <li><a class="page-scroll" href="/#places">Places</a></li>
         <li><h4>xXx</h4></li>
         <li><%= link_to 'Categories', categories_path %></li>
+        <% if user_signed_in? %>
         <li><%= link_to 'New Place', new_place_path %></li>
+        <li><%= link_to 'Account', edit_user_registration_path %></li>
+        <li><%= link_to 'Signout', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 <div style='margin-left: auto; margin-right: auto; padding-left:25px; padding-right:25px; border-style:dashed;'>
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>">
-    <a href="#" data-dismiss="alert" class="close">×</a>
-    <ul>
-      <li>
-        <%= value %>
-      </li>
-    </ul>
-  </div>
-<% end %>
+
 <%= yield %>
 </div>
 

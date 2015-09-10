@@ -1,5 +1,7 @@
 I'm trying to do an Rails Map Application.
 
+v0.4- added user control with Devise gem and some post management
+
 v0.3- added different markers for different categorys. Each category will have a different icon.
       now is possible to list places by category also
 
