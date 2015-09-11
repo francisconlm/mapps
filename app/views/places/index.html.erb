@@ -43,9 +43,6 @@
           </td>
           <td><%= link_to 'Directions', place %></td>
           <% if user_signed_in? %>
-          
-          
-          
           <% if current_user.email==place.user.email %>
           <td><%= link_to 'Edit', edit_place_path(place) %></td>
           <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>

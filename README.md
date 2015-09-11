@@ -1,5 +1,7 @@
 I'm trying to do an Rails Map Application.
 
+v0.5- added backoffice with rails_admin
+
 v0.4- added user control with Devise gem and some post management
 
 v0.3- added different markers for different categorys. Each category will have a different icon.

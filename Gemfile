@@ -18,6 +18,7 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'devise', '~> 3.5.2'
+gem 'rails_admin', '~> 0.7.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
