@@ -13,6 +13,8 @@ class PlacesController < ApplicationController
        :width   => 32,
        :height  => 32
        })
+      marker.infowindow "<h4><u>#{place.title}</u></h4> 
+                         <i>#{place.description}</i>"
     end
 
   end

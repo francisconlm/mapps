@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
- <%= image_tag @places_pic.image.url(:medium) %>
+ <%= image_tag @places_pic.image.url(:large) %>
 <p>
   <strong>Title:</strong>
   <%= @places_pic.title %>
@@ -13,8 +13,14 @@
 
 <p>
   <strong>Place:</strong>
-  <%= @places_pic.place_id %>
+  <%= @places_pic.place.title %>
 </p>
-
+<p>
+  <strong>Created by:</strong>
+  <%= @places_pic.user.email %>
+</p>
+        <% if user_signed_in? %>
+          <% if current_user.email==@places_pic.user.email %>
 <%= link_to 'Edit', edit_places_pic_path(@places_pic) %> |
+<% end %><% end %>
 <%= link_to 'Back', places_pics_path %>

@@ -14,7 +14,7 @@ class PlacesPicsController < ApplicationController
 
   # GET /places_pics/new
   def new
-    @places_pic = PlacesPic.new
+    @places_pic = current_user.places_pics.build
   end
 
   # GET /places_pics/1/edit
@@ -24,7 +24,7 @@ class PlacesPicsController < ApplicationController
   # POST /places_pics
   # POST /places_pics.json
   def create
-    @places_pic = PlacesPic.new(places_pic_params)
+    @places_pic = current_user.places_pics.build(places_pic_params)
 
     respond_to do |format|
       if @places_pic.save
