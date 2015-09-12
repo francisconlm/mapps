@@ -1,9 +1,17 @@
   <p id="notice"><%= notice %></p>
-  
-  <h1>Listing Places</h1>
-  <% if user_signed_in? %>
+    <% if user_signed_in? %>
 <%= link_to 'New Place', new_place_path %>
 <% end %>
+  <section id="places">
+  
+  <div style='width: 800px; margin-left: auto; margin-right: auto; '>
+              <h2>Mapping Places</h2>
+              <div  id="map" style='width: 800px; height: 400px;'></div>
+            </div>
+  </section>
+  
+  <h1>Listing Places</h1>
+
   
   <table class="table">
     <thead>
@@ -61,13 +69,7 @@
   </table>
   
   <br>
-  <hr> <section id="places">
-  
-  <div style='width: 800px; margin-left: auto; margin-right: auto; padding:50px;'>
-              <h2>Mapping Places</h2>
-              <div  id="map" style='width: 800px; height: 400px;'></div>
-            </div>
-  </section>
+  <hr> 
   <script type="text/javascript">
     handler = Gmaps.build('Google');
     handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
@@ -76,7 +78,3 @@
     handler.fitMapToBounds();
     });
   </script>
-  
-
-
-  

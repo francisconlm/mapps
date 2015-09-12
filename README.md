@@ -1,5 +1,7 @@
 I'm trying to do an Rails Map Application.
 
+v0.6 - added images for places. some redesign of page.
+
 v0.5- added backoffice with rails_admin
 
 v0.4- added user control with Devise gem and some post management

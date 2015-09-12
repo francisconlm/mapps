@@ -9,12 +9,12 @@ class PlacesController < ApplicationController
       marker.lat place.latitude
       marker.lng place.longitude
       marker.picture({
-       :url => "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=#{place.category.id}|FF0000|000000", # up to you to pass the proper parameters in the url, I guess with a method from device
+       :url => "assets/#{place.category.id}.png", # up to you to pass the proper parameters in the url, I guess with a method from device
        :width   => 32,
        :height  => 32
        })
-      marker.infowindow "<h4><u>#{place.title}</u></h4> 
-                         <i>#{place.description}</i>"
+      marker.infowindow "<p>Place: <a href=/places/#{place.id}>#{place.title}</a></p>
+                         <p>Category: <a href=/categories/#{place.category.id}>#{place.category.name}</a></p>"
     end
 
   end
