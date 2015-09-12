@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+ <%= image_tag @places_pic.image.url(:medium) %>
+<p>
+  <strong>Title:</strong>
+  <%= @places_pic.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @places_pic.body %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @places_pic.place_id %>
+</p>
+
+<%= link_to 'Edit', edit_places_pic_path(@places_pic) %> |
+<%= link_to 'Back', places_pics_path %>

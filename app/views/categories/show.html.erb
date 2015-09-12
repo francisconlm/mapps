@@ -13,7 +13,7 @@
 
 
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
+
 <%= link_to 'Back', categories_path %>
 
   <h2>Listing Places</h2>
@@ -58,8 +58,7 @@
   </script>
           </td>
           <td><%= link_to 'Directions', place %></td>
-          <td><%= link_to 'Edit', edit_place_path(place) %></td>
-          <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
         </tr>
       <% end %>
     </tbody>

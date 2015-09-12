@@ -1,0 +1,36 @@
+
+
+<%= form_for @places_pic, html: { multipart: true } do |f| %>
+  <% if @places_pic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@places_pic.errors.count, "error") %> prohibited this places_pic from being saved:</h2>
+
+      <ul>
+      <% @places_pic.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
+    <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+<div class="field">
+    <%= f.label :place_id %><br>
+    <%= f.select :place_id, Place.all.collect {|p| [ p.title, p.id ] }, { include_blank: true } %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

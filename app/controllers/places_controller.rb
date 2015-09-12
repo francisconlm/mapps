@@ -20,6 +20,9 @@ class PlacesController < ApplicationController
   # GET /places/1
   # GET /places/1.json
   def show
+    @place = Place.find(params[:id])
+    @title = @place.title
+    @posts = @place.places_pics
   end
 
   # GET /places/new

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Places Pics</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Place</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @places_pics.each do |places_pic| %>
+      <tr>
+        <td><%= places_pic.title %></td>
+        <td><%= places_pic.body %></td>
+        <td><%= places_pic.place_id %></td>
+        <td><%= image_tag places_pic.image.url(:thumb) %></td>
+        <td><%= link_to 'Show', places_pic %></td>
+        <td><%= link_to 'Edit', edit_places_pic_path(places_pic) %></td>
+        <td><%= link_to 'Destroy', places_pic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Places pic', new_places_pic_path %>

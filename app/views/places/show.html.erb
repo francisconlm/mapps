@@ -47,9 +47,33 @@
 
   <div style='width: 800px;'>
     <div id="map" style='width: 800px; height: 400px;'></div>
-  </div>
+  </div></div>
 
+  <h2>Place Pictures</h2>
+  
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Place</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @posts.each do |places_pic| %>
+      <tr>
+        <td><%= places_pic.title %></td>
+        <td><%= places_pic.body %></td>
+        <td><%= places_pic.place_id %></td>
+        <td><%= image_tag places_pic.image.url(:thumb) %></td>
+        <td><%= link_to 'Show', places_pic %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 
 
@@ -81,7 +105,7 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
      var request = {
        origin: coords,
        destination: '<%= @place.latitude %> <%= @place.longitude %>',
-       travelMode: google.maps.DirectionsTravelMode.DRIVING
+       travelMode: google.maps.DirectionsTravelMode.WALKING
      };
 
      directionsService.route(request, function (response, status) {
