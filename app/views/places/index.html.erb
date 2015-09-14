@@ -4,72 +4,11 @@
 <% end %>
   <section id="places">
   
-  <div style='width: 800px; margin-left: auto; margin-right: auto; '>
-              <h2>Mapping Places</h2>
-              <div  id="map" style='width: 800px; height: 400px;'></div>
+  <div style='width: 100%; height: 600px; margin-left: auto; margin-right: auto; '>
+              <div  id="map" style='width: 100%; height: 500px'></div>
             </div>
   </section>
   
-  <h1>Listing Places</h1>
-
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Latitude</th>
-        <th>Longitude</th>
-        <th>Address</th>
-        <th>Description</th>
-        <th>Title</th>
-        <th>Category</th>
-        <th>Submited By</th>
-        <th>Preview</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-  
-    <tbody>
-      <% @places.each do |place| %>
-        <tr>
-          <td><%= place.latitude %></td>
-          <td><%= place.longitude %></td>
-          <td><%= place.address %></td>
-          <td><%= place.description %></td>
-          <td><%= place.title %></td>
-          <td><%= link_to place.category.name, place.category %></td>
-          <td><%= place.user.email %></td>
-          <td>
-  
-  <div style='width: 200px;' >
-              <div id="map<%= place.id %>" style='width: 100px; height: 100px;'></div>
-            </div>
-  
-  <script type="text/javascript">
-    handler<%= place.id %> = Gmaps.build('Google');
-    handler<%= place.id %>.buildMap({ provider: {}, internal: {id: 'map<%= place.id %>'}}, function(){
-    markers<%= place.id %> = handler<%= place.id %>.addMarkers([{ lat: <%= place.latitude %>, lng: <%= place.longitude %>}]);
-    handler<%= place.id %>.bounds.extendWith(markers<%= place.id %>);
-    handler<%= place.id %>.fitMapToBounds();
-    handler<%= place.id %>.getMap().setZoom(10);
-    });
-  </script>
-          </td>
-          <td><%= link_to 'More Info', place %></td>
-          <% if user_signed_in? %>
-          <% if current_user.email==place.user.email %>
-          <td><%= link_to 'Edit', edit_place_path(place) %></td>
-          <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-        <% end %>
-
-
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  
-  <br>
-  <hr> 
   <script type="text/javascript">
     handler = Gmaps.build('Google');
     handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
