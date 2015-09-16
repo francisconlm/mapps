@@ -24,7 +24,7 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @title = @place.title
-    @posts = @place.places_pics
+    @pics = @place.places_pics
   end
 
   # GET /places/new

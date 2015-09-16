@@ -63,17 +63,22 @@
     </tr>
   </thead>
   <% if user_signed_in? %>
-<%= link_to 'New Photo', new_places_pic_path(:place_id => @place_id) %>
+<%= link_to 'New Photo', new_place_places_pic_path(@place) %>
 <% end %>
 
   <tbody>
-    <% @posts.each do |places_pic| %>
+    <% @pics.each do |places_pic| %>
       <tr>
         <td><%= places_pic.title %></td>
         <td><%= places_pic.body %></td>
         <td><%= places_pic.place.title %></td>
         <td><%= image_tag places_pic.image.url(:thumb) %></td>
         <td><%= link_to 'Show', places_pic %></td>
+        <% if user_signed_in? %>
+          <% if current_user.email==places_pic.user.email %>
+        <td><%= link_to 'Edit', edit_places_pic_path(places_pic) %></td>
+        <td><%= link_to 'Destroy', places_pic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %><% end %>
       </tr>
     <% end %>
   </tbody>

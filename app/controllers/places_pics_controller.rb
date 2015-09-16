@@ -12,13 +12,15 @@ class PlacesPicsController < ApplicationController
   def show
   end
 
-  # GET /places_pics/new
+  # GET /places_pics/new    
   def new
+    @place = Place.find(params[:place_id])
     @places_pic = current_user.places_pics.build
   end
 
   # GET /places_pics/1/edit
   def edit
+    @place = @places_pic.place
   end
 
   # POST /places_pics
