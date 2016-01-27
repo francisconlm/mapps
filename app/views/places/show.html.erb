@@ -49,40 +49,41 @@
   <div style='width: 800px;'>
     <div id="map" style='width: 800px; height: 400px;'></div>
   </div></div>
+  
+  <div class="col-md-4">
 
   <h2>Place Pictures</h2>
-  
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Place</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
   <% if user_signed_in? %>
-<%= link_to 'New Photo', new_place_places_pic_path(@place) %>
-<% end %>
+    <%= link_to 'New Photo', new_place_places_pic_path(@place) %>
+  <% end %>
 
-  <tbody>
+
     <% @pics.each do |places_pic| %>
-      <tr>
-        <td><%= places_pic.title %></td>
-        <td><%= places_pic.body %></td>
-        <td><%= places_pic.place.title %></td>
-        <td><%= image_tag places_pic.image.url(:thumb) %></td>
-        <td><%= link_to 'Show', places_pic %></td>
-        <% if user_signed_in? %>
-          <% if current_user.email==places_pic.user.email %>
-        <td><%= link_to 'Edit', edit_places_pic_path(places_pic) %></td>
-        <td><%= link_to 'Destroy', places_pic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %><% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h1 class="panel-title"><%= places_pic.title %></h1>
+        </div>
+        <div class="panel-body">
+         
+          <h5>Place: <%= places_pic.place.title %></h5>
+          <%= image_tag places_pic.image.url(:thumb) %>
+           <h5>Description: <%= places_pic.body %></h5>
+        </div> 
+        <div class="panel-footer clearfix">
+          <div class="pull-right">
+              <%= link_to 'Show', places_pic %>
+              <% if user_signed_in? %>
+                <% if current_user.email==places_pic.user.email %>
+                  <%= link_to 'Edit', edit_places_pic_path(places_pic) %>
+                  <%= link_to 'Destroy', places_pic, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+              <% end %>
+          </div>
+        </div>
+    </div>
+        <% end %>
+        
+        </div>
 
 
 

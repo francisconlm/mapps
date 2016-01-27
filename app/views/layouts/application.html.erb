@@ -25,6 +25,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Places', places_path %></li>
         <% if user_signed_in? %>
+        <li><%= link_to 'New Place', new_place_path %></li>
         <li><%= link_to 'Account', edit_user_registration_path %></li>
         <li><%= link_to 'Signout', destroy_user_session_path, method: :delete %></li>
         <% else %>
@@ -34,10 +35,10 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-<div style=' padding-left:25px; padding-right:25px;'>
+  <div>
 <%= yield %>
 </div>
+
 
 </body>
 </html>
